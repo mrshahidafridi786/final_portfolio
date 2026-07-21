@@ -187,14 +187,17 @@ const seedDatabase = async () => {
     console.log('Cleared existing collections.');
 
     // Create default admin user
+    const adminUsername = process.env.ADMIN_SEED_USERNAME || 'shahidullahafridi31@gmail.com';
+    const adminPassword = process.env.ADMIN_SEED_PASSWORD || '@shahid123';
+
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash('@shahid123', salt);
+    const passwordHash = await bcrypt.hash(adminPassword, salt);
     const defaultAdmin = new Admin({
-      username: 'shahidullahafridi31@gmail.com',
+      username: adminUsername,
       password: passwordHash
     });
     await defaultAdmin.save();
-    console.log('Inserted default admin credentials: shahidullahafridi31@gmail.com / @shahid123');
+    console.log(`Inserted default admin credentials: ${adminUsername} / (password configured)`);
 
     // Create default Hero
     const defaultHero = new Hero({

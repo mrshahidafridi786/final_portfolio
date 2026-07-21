@@ -8,6 +8,12 @@ import apiRouter from './routes/api';
 // Load environment variables
 dotenv.config();
 
+// Security check: ensure JWT_SECRET is configured in production
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+  console.error("FATAL: JWT_SECRET environment variable must be configured in production!");
+  process.exit(1);
+}
+
 // Connect to database
 connectDB();
 
