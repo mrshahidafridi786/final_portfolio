@@ -1,0 +1,33 @@
+{
+  "name": "shahid-afridi-mern-portfolio",
+  "version": "1.0.0",
+  "description": "Root workspace orchestrator for Shahid Afridi MERN Stack Portfolio",
+  "scripts": {
+    "install:all": "npm install --prefix frontend --legacy-peer-deps && npm install --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "start:all": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "seed": "npm run seed --prefix backend",
+    "build": "npm run build --prefix frontend"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.3.1",
+    "multer": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  }
+}
