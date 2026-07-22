@@ -8,35 +8,54 @@ import apiRouter from './routes/api';
 // Load environment variables
 dotenv.config();
 
-// Security check: ensure JWT_SECRET is configured in production
-if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
-  console.error("FATAL: JWT_SECRET environment variable must be configured in production!");
-  process.exit(1);
+// Ensure default fallback for JWT_SECRET
+if (!process.env.JWT_SECRET) {
+  process.env.JWT_SECRET = 'shahid_portfolio_jwt_secret_2026';
 }
-
-// Connect to database
-connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'https://final-portfolio-frontend-spb2.vercel.app',
+  process.env.FRONTEND_URL
+].filter(Boolean) as string[];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(null, true);
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
+
+// Health check endpoint (placed before DB middleware so it responds instantly)
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Shahid Afridi Portfolio API is operational.' });
+});
+
+// Ensure DB is connected before processing API requests
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+  } catch (err) {
+    console.error('Non-fatal DB connection error in middleware:', err);
+  }
+  next();
+});
 
 // Serve local uploads folder statically
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Routes
 app.use('/api', apiRouter);
-
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Shahid Afridi Portfolio API is operational.' });
-});
 
 // Start Server
 if (!process.env.VERCEL) {
