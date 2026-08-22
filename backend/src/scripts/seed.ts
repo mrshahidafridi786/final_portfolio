@@ -248,7 +248,7 @@ const seedDatabase = async () => {
 
     // Create default Resume
     const defaultResume = new Resume({
-      resumeUrl: 'https://example.com/placeholder-resume.pdf'
+      resumeUrl: '/Shahid_Afridi_CV.pdf'
     });
     await defaultResume.save();
     console.log('Inserted default Resume record.');

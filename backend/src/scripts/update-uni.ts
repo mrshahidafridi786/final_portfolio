@@ -4,6 +4,8 @@ import path from 'path';
 import Education from '../models/Education';
 import Certificate from '../models/Certificate';
 import Admin from '../models/Admin';
+import Resume from '../models/Resume';
+import Hero from '../models/Hero';
 import bcrypt from 'bcryptjs';
 
 dotenv.config();
@@ -46,6 +48,25 @@ const run = async () => {
     });
     await defaultAdmin.save();
     console.log('Successfully updated admin user credentials.');
+
+    // Reset/update default Resume
+    await Resume.deleteMany({});
+    const defaultResume = new Resume({
+      resumeUrl: '/Shahid_Afridi_CV.pdf'
+    });
+    await defaultResume.save();
+    console.log('Successfully updated resume record.');
+
+    // Update Hero CTA Buttons
+    await Hero.updateMany({}, {
+      $set: {
+        ctaButtons: [
+          { label: 'Hire Me', action: '#contact', primary: true },
+          { label: 'Download CV', action: '/Shahid_Afridi_CV.pdf', primary: false }
+        ]
+      }
+    });
+    console.log('Successfully updated Hero CTA buttons.');
 
     // Log current education records in DB
     const allEdus = await Education.find();
