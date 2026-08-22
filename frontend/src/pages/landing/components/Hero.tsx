@@ -55,13 +55,7 @@ export default function Hero() {
     const isCv = btn.label.toLowerCase().includes('cv') || btn.label.toLowerCase().includes('resume') || btn.action.endsWith('.pdf');
     if (isCv) {
       const cvUrl = (btn.action.startsWith('#') || !btn.action) ? '/Shahid_Afridi_CV.pdf' : btn.action;
-      const link = document.createElement('a');
-      link.href = cvUrl;
-      link.setAttribute('download', 'Shahid_Afridi_CV.pdf');
-      link.setAttribute('target', '_blank');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      window.open(cvUrl, '_blank');
     } else if (btn.action.startsWith('#')) {
       handleScrollTo(btn.action.substring(1));
     } else {
