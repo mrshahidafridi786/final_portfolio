@@ -1,9 +1,11 @@
 {
   "version": 2,
+  "buildCommand": "npm run build --prefix frontend",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.ts"
+      "destination": "https://final-portfolio-backend-yjep.vercel.app/api/$1"
     },
     {
       "source": "/((?!api/).*)",
