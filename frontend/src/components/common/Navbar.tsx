@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import shahidSuit from '../../assets/shahid_suit.jpg';
-import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -195,9 +194,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Theme Toggle & Hire Me CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+          {/* Hire Me CTA Button */}
+          <div className="hidden md:flex items-center">
             <a
               href="#contact"
               onClick={(e) => handleLinkClick(e, 'contact')}
@@ -208,32 +206,28 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Right Controls */}
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            {/* Mobile Morphing Hamburger Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex h-10 w-10 flex-col items-center justify-center space-y-1.5 rounded-full border border-white/10 bg-white/5 text-white hover:border-white/20 transition-all duration-200 cursor-pointer z-50"
-              aria-label="Toggle Mobile Menu"
-            >
-              <motion.span 
-                className="h-[2px] w-5 bg-white rounded-full block" 
-                animate={isMobileMenuOpen ? { rotate: 45, y: 5.5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.25 }}
-              />
-              <motion.span 
-                className="h-[2px] w-5 bg-white rounded-full block" 
-                animate={isMobileMenuOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
-              />
-              <motion.span 
-                className="h-[2px] w-5 bg-white rounded-full block" 
-                animate={isMobileMenuOpen ? { rotate: -45, y: -5.5 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.25 }}
-              />
-            </button>
-          </div>
+          {/* Mobile Morphing Hamburger Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex h-10 w-10 flex-col items-center justify-center space-y-1.5 rounded-full border border-white/10 bg-white/5 text-white md:hidden hover:border-white/20 transition-all duration-200 cursor-pointer z-50"
+            aria-label="Toggle Mobile Menu"
+          >
+            <motion.span 
+              className="h-[2px] w-5 bg-white rounded-full block" 
+              animate={isMobileMenuOpen ? { rotate: 45, y: 5.5 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <motion.span 
+              className="h-[2px] w-5 bg-white rounded-full block" 
+              animate={isMobileMenuOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span 
+              className="h-[2px] w-5 bg-white rounded-full block" 
+              animate={isMobileMenuOpen ? { rotate: -45, y: -5.5 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+          </button>
         </div>
       </header>
 

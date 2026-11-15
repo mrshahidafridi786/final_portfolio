@@ -4,7 +4,6 @@ import Lenis from 'lenis'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './admin/context/AuthContext.tsx';
-import { ThemeProvider } from './context/ThemeContext.tsx';
 import App from './App.tsx';
 
 // Initialize Lenis Smooth Scroll
@@ -26,11 +25,9 @@ requestAnimationFrame(raf);
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>,
 );
