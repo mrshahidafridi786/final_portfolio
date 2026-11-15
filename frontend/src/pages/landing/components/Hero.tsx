@@ -15,8 +15,8 @@ const iconMap: Record<string, any> = {
 export default function Hero() {
   const [data, setData] = useState({
     name: 'Shahid Afridi',
-    title: 'MERN Stack & React Native Developer',
-    subtitle: 'I build high-end web applications, cross-platform React Native apps, real-time analytics dashboards, and premium user interfaces that turn visitors into paying clients.',
+    title: 'MERN Stack Web Developer',
+    subtitle: 'I build high-end web applications, scalable MERN architectures, real-time analytics dashboards, and premium user interfaces that turn visitors into paying clients.',
     profileImage: '',
     ctaButtons: [
       { label: 'Hire Me', action: '#contact', primary: true },

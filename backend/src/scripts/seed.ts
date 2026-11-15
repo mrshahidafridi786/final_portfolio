@@ -24,8 +24,6 @@ const skillsData = [
   { name: 'HTML5', category: 'frontend', level: 95, iconName: 'FaHtml5' },
   { name: 'CSS3', category: 'frontend', level: 95, iconName: 'FaCss3Alt' },
   { name: 'React', category: 'frontend', level: 95, iconName: 'FaReact' },
-  { name: 'React Native', category: 'frontend', level: 90, iconName: 'TbBrandReactNative' },
-  { name: 'Expo', category: 'frontend', level: 85, iconName: 'SiExpo' },
   { name: 'TypeScript', category: 'frontend', level: 90, iconName: 'SiTypescript' },
   { name: 'Tailwind CSS', category: 'frontend', level: 95, iconName: 'SiTailwindcss' },
   { name: 'Framer Motion', category: 'frontend', level: 85, iconName: 'TbBrandFramerMotion' },
@@ -202,8 +200,8 @@ const seedDatabase = async () => {
     // Create default Hero
     const defaultHero = new Hero({
       name: 'Shahid Afridi',
-      title: 'MERN Stack & React Native Developer',
-      subtitle: 'I build high-end web applications, cross-platform React Native apps, real-time analytics dashboards, and premium user interfaces that turn visitors into paying clients.',
+      title: 'MERN Stack Web Developer',
+      subtitle: 'I build high-end web applications, scalable MERN architectures, real-time analytics dashboards, and premium user interfaces that turn visitors into paying clients.',
       profileImage: '',
       ctaButtons: [
         { label: 'Hire Me', action: '#contact', primary: true },
@@ -221,7 +219,7 @@ const seedDatabase = async () => {
 
     // Create default About
     const defaultAbout = new About({
-      description: 'Passionate MERN Stack Developer with expertise in building modern, responsive, and scalable web applications using MongoDB, Express.js, React.js, and Node.js. Experienced in developing clean, user-focused web solutions with practical knowledge of Mobile App Development. Dedicated to writing efficient, maintainable code and continuously learning emerging technologies to deliver high-quality digital products.',
+      description: 'Passionate MERN Stack Developer with expertise in building modern, responsive, and scalable web applications using MongoDB, Express.js, React.js, and Node.js. Experienced in developing clean, user-focused web solutions with practical knowledge of Full-Stack Architecture. Dedicated to writing efficient, maintainable code and continuously learning emerging technologies to deliver high-quality digital products.',
       profileImage: '',
       statistics: [
         { label: 'Years Learning & Coding', value: '1+' },
@@ -269,7 +267,7 @@ const seedDatabase = async () => {
 
     const servicesData = [
       { name: 'Full-Stack MERN Development', description: 'Architecting secure, high-traffic SaaS endpoints using Node, Express, MongoDB, and React. Clean REST controller routers, JWT auth gates, and query optimizations.', icon: 'FaCode' },
-      { name: 'React Native Mobile Apps', description: 'Building high-performance cross-platform iOS and Android mobile apps using React Native and Expo, with offline-first caching and fluid layout sheets.', icon: 'FaMobileAlt' },
+      { name: 'API Design & Cloud Architecture', description: 'Constructing robust Node.js and Express backend servers with secure endpoints, MongoDB indexing, and cloud storage integration.', icon: 'FaServer' },
       { name: 'Realtime Socket Pipelines', description: 'Synchronizing real-time telemetry events and visual canvas paths via Socket.io rooms, optimized with event throttling to avoid CPU bottleneck constraints.', icon: 'FaSyncAlt' },
       { name: 'Headless E-Commerce Engines', description: 'Designing high-converting payment streams by integrating Stripe transaction intents, webhooks controllers, and responsive shopping cart UI/UX layers.', icon: 'FaShoppingCart' }
     ];

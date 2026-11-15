@@ -12,7 +12,7 @@ import shahidClose from "../../../assets/shahid_close.jpg";
 export default function About() {
   const [aboutData, setAboutData] = useState({
     description:
-      "Passionate MERN Stack Developer with expertise in building modern, responsive, and scalable web applications using MongoDB, Express.js, React.js, and Node.js. Experienced in developing clean, user-focused web solutions with practical knowledge of Mobile App Development. Dedicated to writing efficient, maintainable code and continuously learning emerging technologies to deliver high-quality digital products.",
+      "Passionate MERN Stack Developer with expertise in building modern, responsive, and scalable web applications using MongoDB, Express.js, React.js, and Node.js. Experienced in developing clean, user-focused web solutions with practical knowledge of Full-Stack Architecture. Dedicated to writing efficient, maintainable code and continuously learning emerging technologies to deliver high-quality digital products.",
     profileImage: "",
     statistics: [
       { label: "Years Learning & Coding", value: "1+" },
@@ -137,7 +137,7 @@ export default function About() {
                 <span>My Mission Statement</span>
               </h5>
               <p className="font-sans text-[11px] italic text-text-secondary leading-relaxed">
-                "To deliver fast, clean, and highly secure MERN & mobile
+                "To deliver fast, clean, and highly secure MERN web
                 applications that optimize workflows, scale seamlessly under
                 heavy concurrent loads, and drive client revenue."
               </p>
