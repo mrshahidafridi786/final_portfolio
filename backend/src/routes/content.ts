@@ -1,4 +1,6 @@
 import { Router, Request, Response } from 'express';
+import path from 'path';
+import fs from 'fs';
 import Hero from '../models/Hero';
 import About from '../models/About';
 import Experience from '../models/Experience';
@@ -387,6 +389,19 @@ router.delete('/messages/:id', verifyToken, async (req: Request, res: Response) 
 // ==========================================
 // 8. RESUME MANAGEMENT
 // ==========================================
+router.get('/resume/download', (req: Request, res: Response) => {
+  const filePath = path.join(__dirname, '../../public/Shahid_Afridi_CV.pdf');
+  const fallbackPath = path.join(__dirname, '../../uploads/Shahid_Afridi_CV.pdf');
+  
+  if (fs.existsSync(filePath)) {
+    return res.download(filePath, 'Shahid_Afridi_CV.pdf');
+  } else if (fs.existsSync(fallbackPath)) {
+    return res.download(fallbackPath, 'Shahid_Afridi_CV.pdf');
+  } else {
+    return res.status(404).json({ message: 'CV file not found on server' });
+  }
+});
+
 router.get('/resume', async (req: Request, res: Response) => {
   try {
     const resume = await Resume.findOne();
