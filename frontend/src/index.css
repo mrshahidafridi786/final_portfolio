@@ -5,13 +5,32 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  html.dark, html:not(.light) {
     background-color: #050816;
+    color: #ffffff;
+  }
+
+  html.light {
+    background-color: #f8fafc;
+    color: #0f172a;
   }
   
   body {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body, html:not(.light) body {
     background-color: #050816;
     color: #ffffff;
-    font-family: 'Outfit', 'Inter', sans-serif;
+  }
+
+  html.light body {
+    background-color: #f8fafc;
+    color: #0f172a;
   }
 
   /* Custom Premium Scrollbar */
@@ -21,27 +40,34 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #050816;
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: rgba(59, 130, 246, 0.25);
+    background: rgba(59, 130, 246, 0.35);
     border-radius: 999px;
-    border: 2px solid #050816;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(168, 85, 247, 0.5);
+    background: rgba(168, 85, 247, 0.6);
   }
 }
 
-/* Glassmorphism custom classes */
+/* Glassmorphism custom classes with light/dark adaptivity */
 .glassmorphism {
-  background: rgba(11, 17, 32, 0.6);
+  background: rgba(11, 17, 32, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light .glassmorphism {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
 }
 
 .glassmorphism-light {
@@ -49,6 +75,64 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html.light .glassmorphism-light {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(203, 213, 225, 0.6);
+}
+
+/* Light mode typography & section adjustments */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-white\/60,
+html.light .text-text-secondary {
+  color: #475569 !important;
+}
+
+html.light .text-white\/40 {
+  color: #64748b !important;
+}
+
+html.light .text-white\/80,
+html.light .text-white\/90 {
+  color: #1e293b !important;
+}
+
+html.light .bg-\[\#050816\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#0b1120\] {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-primary-light\/30,
+html.light .bg-primary-light\/20,
+html.light .bg-primary-light\/10,
+html.light .bg-primary-light\/5 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: rgba(203, 213, 225, 0.7) !important;
+}
+
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+}
+
+html.light input,
+html.light textarea,
+html.light select {
+  color: #0f172a !important;
 }
 
 /* Glowing decorative backdrops */

@@ -22,7 +22,7 @@ export default function LandingPage() {
       {isLoading ? (
         <Loader onComplete={() => setIsLoading(false)} />
       ) : (
-        <div className="relative min-h-screen bg-[#050816] text-[#ffffff] overflow-x-hidden antialiased">
+        <div className="relative min-h-screen bg-[#050816] text-[#ffffff] overflow-x-hidden antialiased transition-colors duration-300">
           <Navbar />
           <main>
             <Hero />
